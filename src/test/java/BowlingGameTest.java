@@ -54,6 +54,7 @@ public class BowlingGameTest {
 
     @Test
     void  should_return_score_when_count_score_given_10_frame_all_frame_strike() throws Exception{
+        //todo
         BowlingGame bowlingGame = new BowlingGame();
         //given:10 game
         bowlingGame.playOneFrameWithSamePerformance(10,0,9);
@@ -65,9 +66,34 @@ public class BowlingGameTest {
 
     }
 
+    @Test
+    void  should_return_score_when_count_score_given_all_frame_spare() throws Exception{
+        //todo
+        BowlingGame bowlingGame1 = new BowlingGame();
+        //given:10 game
+        bowlingGame1.playOneFrameWithSamePerformance(5,5,9);
+        bowlingGame1.playTheLastFrame(5,5,5);
+        //when
+        int score1 = bowlingGame1.getScoreOfLine();
+        //then
+        assertEquals(150,score1);
+
+        BowlingGame bowlingGame2 = new BowlingGame();
+        //given:10 game
+        bowlingGame2.playOneFrameWithSamePerformance(4,6,9);
+        bowlingGame2.playTheLastFrame(4,6,5);
+        //when
+        int score2 = bowlingGame2.getScoreOfLine();
+        //then
+        assertEquals(141,score2);
+
+
+    }
+
 
     @Test
     void  should_return_0_when_count_score_given_all_frame_hit_0() throws Exception{
+        //todo
         BowlingGame bowlingGame = new BowlingGame();
         //given:10 game
         bowlingGame.playOneFrameWithSamePerformance(0,0,9);
@@ -78,10 +104,42 @@ public class BowlingGameTest {
         assertEquals(0,score);
 
     }
-    //all frame strike
 
-    //all frame spare
-    //all frame neither strike not spare
-    //have third type
+    @Test
+    void  should_return_score_when_count_score_given_frame_neither_strike_nor_spare() throws Exception{
+        //todo
+        BowlingGame bowlingGame = new BowlingGame();
+        //given:10 game
+        bowlingGame.playOneFrameWithSamePerformance(3,4,9);
+        bowlingGame.playTheLastFrame(3,4,0);
+        //when
+        int score = bowlingGame.getScoreOfLine();
+        //then
+        assertEquals(70,score);
+
+    }
+
+    @Test
+    void  should_return_score_when_count_score_given_frame_have_three_different_performance() throws Exception{
+        //todo
+        BowlingGame bowlingGame = new BowlingGame();
+        //given:10 game
+        bowlingGame.playOneRegularFrame(10, 0);
+        bowlingGame.playOneRegularFrame(10, 0);
+        bowlingGame.playOneRegularFrame(10, 0);
+        bowlingGame.playOneRegularFrame(4, 6);
+        bowlingGame.playOneRegularFrame(4, 4);
+        bowlingGame.playOneRegularFrame(7, 3);
+        bowlingGame.playOneRegularFrame(10, 0);
+        bowlingGame.playOneRegularFrame(10, 0);
+        bowlingGame.playOneRegularFrame(1, 7);
+        bowlingGame.playTheLastFrame(10,3,7);
+        //when
+        int score = bowlingGame.getScoreOfLine();
+        //then
+        assertEquals(183,score);
+
+    }
+
 
 }

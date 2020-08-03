@@ -6,5 +6,7 @@ public class TheLastFrame extends GameFrame{
         this.firstThrowScore = firstThrowScore;
         this.secondThrowScore = secondThrowScore;
         this.thirdThrowScore = thirdThrowScore;
+        this.nextThrowScore = thirdThrowScore;
+
     }
 }
