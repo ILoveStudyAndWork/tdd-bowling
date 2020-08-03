@@ -1,11 +1,16 @@
 package src;
 
 public class GameFrame {
-    int scoreOfFirstThrow = 0;
-    int scoreOfSecondThrow = 0;
+    int firstThrowScore = 0;
+    int secondThrowScore = 0;
+    int previousThrowScore = 0;
+    int throwBeforePreviousScore = 0;
+    int thisFrameScore = 0;
 
-    public GameFrame(int scoreOfFirstThrow, int scoreOfSecondThrow){
-        this.scoreOfFirstThrow = scoreOfFirstThrow;
-        this.scoreOfSecondThrow = scoreOfSecondThrow;
+    public GameFrame(){}
+
+    public GameFrame(int scoreOfFirstThrow, int secondThrowScore){
+        this.firstThrowScore = scoreOfFirstThrow;
+        this.secondThrowScore = secondThrowScore;
     }
 }

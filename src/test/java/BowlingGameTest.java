@@ -16,8 +16,6 @@ public class BowlingGameTest {
         //then throw exception
         NotEnoughException notEnoughException = assertThrows(NotEnoughException.class,()->{bowlingGame.getScoreOfLine();});
 
-
-
         assertEquals("The line less then 10 frame",notEnoughException.getMessage());
     }
 
@@ -25,7 +23,8 @@ public class BowlingGameTest {
     void  should_return_score_when_count_score_given_10_frame_all_frame_strike() throws Exception{
         BowlingGame bowlingGame = new BowlingGame();
         //given:10 game
-        bowlingGame.playOneFrameWithSamePerformance(10,0,10);
+        bowlingGame.playOneFrameWithSamePerformance(10,0,9);
+        bowlingGame.playTheLastFrame(10,10,10);
         //when
         int score = bowlingGame.getScoreOfLine();
         //then
@@ -34,6 +33,18 @@ public class BowlingGameTest {
     }
 
 
+    @Test
+    void  should_return_0_when_count_score_given_10_frame_all_frame_hit_0() throws Exception{
+        BowlingGame bowlingGame = new BowlingGame();
+        //given:10 game
+        bowlingGame.playOneFrameWithSamePerformance(0,0,9);
+        bowlingGame.playTheLastFrame(0,0,0);
+        //when
+        int score = bowlingGame.getScoreOfLine();
+        //then
+        assertEquals(0,score);
+
+    }
     //all frame strike
 
     //all frame spare
